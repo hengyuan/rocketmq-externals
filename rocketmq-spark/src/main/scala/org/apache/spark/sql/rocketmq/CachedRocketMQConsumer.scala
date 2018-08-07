@@ -29,8 +29,8 @@ import java.util.concurrent.TimeoutException
 import java.{util => ju}
 
 import org.apache.commons.lang3.mutable.MutableInt
-import org.apache.rocketmq.client.consumer.{MQPullConsumer, PullStatus}
-import org.apache.rocketmq.common.message.{MessageExt, MessageQueue}
+import com.alibaba.rocketmq.client.consumer.{MQPullConsumer, PullStatus}
+import com.alibaba.rocketmq.common.message.{MessageExt, MessageQueue}
 import org.apache.spark.internal.Logging
 import org.apache.spark.sql.rocketmq.RocketMQSource._
 import org.apache.spark.{SparkEnv, SparkException, TaskContext}

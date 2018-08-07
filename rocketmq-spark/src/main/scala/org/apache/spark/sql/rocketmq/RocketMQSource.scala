@@ -30,7 +30,7 @@ import java.nio.charset.StandardCharsets
 import java.{util => ju}
 
 import org.apache.commons.io.IOUtils
-import org.apache.rocketmq.common.message.MessageQueue
+import com.alibaba.rocketmq.common.message.MessageQueue
 import org.apache.spark.SparkContext
 import org.apache.spark.internal.Logging
 import org.apache.spark.scheduler.ExecutorCacheTaskLocation

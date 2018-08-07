@@ -27,7 +27,7 @@ package org.apache.spark.sql.rocketmq
 
 import java.util.UUID
 
-import org.apache.rocketmq.common.message.MessageQueue
+import com.alibaba.rocketmq.common.message.MessageQueue
 import org.apache.spark.internal.Logging
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.catalyst.InternalRow

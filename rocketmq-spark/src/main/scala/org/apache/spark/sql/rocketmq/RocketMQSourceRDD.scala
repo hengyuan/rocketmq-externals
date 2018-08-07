@@ -26,7 +26,7 @@ package org.apache.spark.sql.rocketmq
 
 import java.{util => ju}
 
-import org.apache.rocketmq.common.message.{MessageExt, MessageQueue}
+import com.alibaba.rocketmq.common.message.{MessageExt, MessageQueue}
 import org.apache.spark.partial.{BoundedDouble, PartialResult}
 import org.apache.spark.rdd.RDD
 import org.apache.spark.storage.StorageLevel

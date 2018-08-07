@@ -21,8 +21,8 @@ import java.util.Properties
 import java.{lang => jl, util => ju}
 
 import org.apache.commons.lang.StringUtils
-import org.apache.rocketmq.client.consumer.DefaultMQPullConsumer
-import org.apache.rocketmq.common.message.{Message, MessageExt, MessageQueue}
+import com.alibaba.rocketmq.client.consumer.DefaultMQPullConsumer
+import com.alibaba.rocketmq.common.message.{Message, MessageExt, MessageQueue}
 import org.apache.spark.SparkContext
 import org.apache.spark.api.java.{JavaRDD, JavaSparkContext}
 import org.apache.spark.rdd.RDD

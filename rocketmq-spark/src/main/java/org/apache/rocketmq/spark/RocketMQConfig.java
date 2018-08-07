@@ -18,11 +18,11 @@
 package org.apache.rocketmq.spark;
 
 import org.apache.commons.lang.Validate;
-import org.apache.rocketmq.client.ClientConfig;
-import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
-import org.apache.rocketmq.client.exception.MQClientException;
-import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
-import org.apache.rocketmq.remoting.common.RemotingUtil;
+import com.alibaba.rocketmq.client.ClientConfig;
+import com.alibaba.rocketmq.client.consumer.DefaultMQPushConsumer;
+import com.alibaba.rocketmq.client.exception.MQClientException;
+import com.alibaba.rocketmq.common.consumer.ConsumeFromWhere;
+import com.alibaba.rocketmq.remoting.common.RemotingUtil;
 
 import java.util.Properties;
 import java.util.UUID;
@@ -171,8 +171,8 @@ public class RocketMQConfig {
 
         client.setClientCallbackExecutorThreads(getInteger(props,
                 CLIENT_CALLBACK_EXECUTOR_THREADS, DEFAULT_CLIENT_CALLBACK_EXECUTOR_THREADS));
-        client.setPollNameServerInterval(getInteger(props,
-                NAME_SERVER_POLL_INTERVAL, DEFAULT_NAME_SERVER_POLL_INTERVAL));
+        /*client.setPollNameServerInterval(getInteger(props,
+                NAME_SERVER_POLL_INTERVAL, DEFAULT_NAME_SERVER_POLL_INTERVAL));*/
         client.setHeartbeatBrokerInterval(getInteger(props,
                 BROKER_HEART_BEAT_INTERVAL, DEFAULT_BROKER_HEART_BEAT_INTERVAL));
     }

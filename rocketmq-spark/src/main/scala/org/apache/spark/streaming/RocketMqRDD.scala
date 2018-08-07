@@ -17,7 +17,7 @@
 
 package org.apache.spark.streaming
 
-import org.apache.rocketmq.common.message.MessageExt
+import com.alibaba.rocketmq.common.message.MessageExt
 import org.apache.rocketmq.spark._
 import org.apache.spark.partial.{BoundedDouble, PartialResult}
 import org.apache.spark.rdd.RDD

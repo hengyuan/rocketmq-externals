@@ -16,7 +16,7 @@
  */
 package org.apache.rocketmq.spark;
 
-import org.apache.rocketmq.common.message.MessageQueue;
+import com.alibaba.rocketmq.common.message.MessageQueue;
 import java.util.Map;
 
 /**

@@ -19,7 +19,7 @@ package org.apache.spark.sql.rocketmq
 
 import java.{util => ju}
 
-import org.apache.rocketmq.common.message.MessageQueue
+import com.alibaba.rocketmq.common.message.MessageQueue
 import org.json4s.NoTypeHints
 import org.json4s.jackson.Serialization
 

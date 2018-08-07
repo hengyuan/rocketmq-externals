@@ -19,10 +19,10 @@ package org.apache.rocketmq.spark.sql;
 
 import com.google.common.io.Files;
 import org.apache.commons.io.FileUtils;
-import org.apache.rocketmq.client.consumer.DefaultMQPullConsumer;
-import org.apache.rocketmq.client.consumer.PullResult;
-import org.apache.rocketmq.client.consumer.PullStatus;
-import org.apache.rocketmq.common.message.MessageQueue;
+import com.alibaba.rocketmq.client.consumer.DefaultMQPullConsumer;
+import com.alibaba.rocketmq.client.consumer.PullResult;
+import com.alibaba.rocketmq.client.consumer.PullStatus;
+import com.alibaba.rocketmq.common.message.MessageQueue;
 import org.apache.rocketmq.spark.RocketMQServerMock;
 import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
@@ -97,7 +97,8 @@ public class RocketMQDataSourceTest {
                 .option("pullTimeout", "5000")
                 .load();
 
-        Dataset<Row> dfOutput = dfInput.select("body");
+        Dataset<Row> dfOutput;
+        dfOutput = dfInput.select("body");
 
         StreamingQuery query = dfOutput.writeStream()
                 .outputMode("append")
@@ -139,7 +140,8 @@ public class RocketMQDataSourceTest {
                 .option("pullTimeout", "5000")
                 .load();
 
-        Dataset<Row> dfOutput = dfInput.select("body");
+        Dataset<Row> dfOutput;
+        dfOutput = dfInput.select("body");
 
         dfOutput.write()
                 .format(CLASS_NAME)

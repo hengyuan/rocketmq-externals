@@ -26,8 +26,8 @@ package org.apache.spark.sql.rocketmq
 
 import java.{util => ju}
 
-import org.apache.rocketmq.client.producer.{DefaultMQProducer, SendCallback, SendResult}
-import org.apache.rocketmq.common.message.Message
+import com.alibaba.rocketmq.client.producer.{DefaultMQProducer, SendCallback, SendResult}
+import com.alibaba.rocketmq.common.message.Message
 import org.apache.spark.sql.catalyst.InternalRow
 import org.apache.spark.sql.catalyst.expressions.{Attribute, Cast, Literal, UnsafeProjection}
 import org.apache.spark.sql.types.{BinaryType, StringType}

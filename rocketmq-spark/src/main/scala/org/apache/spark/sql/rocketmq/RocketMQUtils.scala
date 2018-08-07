@@ -18,8 +18,8 @@ package org.apache.spark.sql.rocketmq
 
 import java.{util => ju}
 
-import org.apache.rocketmq.client.consumer.DefaultMQPullConsumer
-import org.apache.rocketmq.client.producer.DefaultMQProducer
+import com.alibaba.rocketmq.client.consumer.DefaultMQPullConsumer
+import com.alibaba.rocketmq.client.producer.DefaultMQProducer
 
 /**
  * Some helper methods of RocketMQ

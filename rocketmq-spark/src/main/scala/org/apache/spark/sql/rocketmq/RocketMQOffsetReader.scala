@@ -26,8 +26,8 @@ package org.apache.spark.sql.rocketmq
 
 import java.{util => ju}
 
-import org.apache.rocketmq.client.consumer.MQPullConsumer
-import org.apache.rocketmq.common.message.MessageQueue
+import com.alibaba.rocketmq.client.consumer.MQPullConsumer
+import com.alibaba.rocketmq.common.message.MessageQueue
 import org.apache.spark.internal.Logging
 
 import scala.collection.JavaConverters._

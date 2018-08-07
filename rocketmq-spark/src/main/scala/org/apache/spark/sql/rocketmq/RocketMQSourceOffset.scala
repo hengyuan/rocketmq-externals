@@ -24,7 +24,7 @@
 
 package org.apache.spark.sql.rocketmq
 
-import org.apache.rocketmq.common.message.MessageQueue
+import com.alibaba.rocketmq.common.message.MessageQueue
 import org.apache.spark.sql.execution.streaming.{Offset, SerializedOffset}
 import org.apache.spark.sql.sources.v2.reader.streaming.{PartitionOffset, Offset => OffsetV2}
 

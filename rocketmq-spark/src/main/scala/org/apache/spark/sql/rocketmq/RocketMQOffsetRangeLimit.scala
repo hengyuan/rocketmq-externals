@@ -24,7 +24,7 @@
 
 package org.apache.spark.sql.rocketmq
 
-import org.apache.rocketmq.common.message.MessageQueue
+import com.alibaba.rocketmq.common.message.MessageQueue
 
 /**
  * Objects that represent desired offset range limits for starting,

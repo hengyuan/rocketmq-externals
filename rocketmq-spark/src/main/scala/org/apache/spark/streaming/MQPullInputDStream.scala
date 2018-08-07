@@ -21,10 +21,10 @@ import java.util.concurrent.atomic.AtomicReference
 import java.util.concurrent.{ConcurrentLinkedQueue, TimeUnit}
 import java.{lang => jl, util => ju}
 
-import org.apache.rocketmq.client.consumer.DefaultMQPullConsumer
-import org.apache.rocketmq.client.consumer.store.ReadOffsetType
-import org.apache.rocketmq.common.MixAll
-import org.apache.rocketmq.common.message.{MessageExt, MessageQueue}
+import com.alibaba.rocketmq.client.consumer.DefaultMQPullConsumer
+import com.alibaba.rocketmq.client.consumer.store.ReadOffsetType
+import com.alibaba.rocketmq.common.MixAll
+import com.alibaba.rocketmq.common.message.{MessageExt, MessageQueue}
 import org.apache.rocketmq.spark.{ConsumerStrategy, _}
 import org.apache.spark.storage.StorageLevel
 import org.apache.spark.streaming.dstream.{DStream, DStreamCheckpointData, InputDStream}

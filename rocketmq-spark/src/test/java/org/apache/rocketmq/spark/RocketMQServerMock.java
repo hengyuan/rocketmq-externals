@@ -18,19 +18,19 @@
 package org.apache.rocketmq.spark;
 
 import org.apache.commons.lang.time.DateFormatUtils;
-import org.apache.rocketmq.broker.BrokerController;
-import org.apache.rocketmq.client.exception.MQClientException;
-import org.apache.rocketmq.client.producer.DefaultMQProducer;
-import org.apache.rocketmq.common.BrokerConfig;
-import org.apache.rocketmq.common.MQVersion;
-import org.apache.rocketmq.common.MixAll;
-import org.apache.rocketmq.common.message.Message;
-import org.apache.rocketmq.common.namesrv.NamesrvConfig;
-import org.apache.rocketmq.namesrv.NamesrvController;
-import org.apache.rocketmq.remoting.netty.NettyClientConfig;
-import org.apache.rocketmq.remoting.netty.NettyServerConfig;
-import org.apache.rocketmq.remoting.protocol.RemotingCommand;
-import org.apache.rocketmq.store.config.MessageStoreConfig;
+import com.alibaba.rocketmq.broker.BrokerController;
+import com.alibaba.rocketmq.client.exception.MQClientException;
+import com.alibaba.rocketmq.client.producer.DefaultMQProducer;
+import com.alibaba.rocketmq.common.BrokerConfig;
+import com.alibaba.rocketmq.common.MQVersion;
+import com.alibaba.rocketmq.common.MixAll;
+import com.alibaba.rocketmq.common.message.Message;
+import com.alibaba.rocketmq.common.namesrv.NamesrvConfig;
+import com.alibaba.rocketmq.namesrv.NamesrvController;
+import com.alibaba.rocketmq.remoting.netty.NettyClientConfig;
+import com.alibaba.rocketmq.remoting.netty.NettyServerConfig;
+import com.alibaba.rocketmq.remoting.protocol.RemotingCommand;
+import com.alibaba.rocketmq.store.config.MessageStoreConfig;
 
 import java.util.Date;
 import java.util.UUID;
@@ -83,7 +83,7 @@ public class RocketMQServerMock {
     }
 
     private void startBroker() throws Exception {
-        System.setProperty(RemotingCommand.REMOTING_VERSION_KEY, Integer.toString(MQVersion.CURRENT_VERSION));
+        //System.setProperty(RemotingCommand.REMOTING_VERSION_KEY, Integer.toString(MQVersion.CURRENT_VERSION));
 
         BrokerConfig brokerConfig = new BrokerConfig();
         brokerConfig.setNamesrvAddr(getNameServerAddr());

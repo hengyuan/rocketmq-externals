@@ -19,8 +19,8 @@ package org.apache.rocketmq.spark
 
 import java.{util => ju}
 
-import org.apache.rocketmq.common.UtilAll
-import org.apache.rocketmq.common.message.MessageQueue
+import com.alibaba.rocketmq.common.UtilAll
+import com.alibaba.rocketmq.common.message.MessageQueue
 import org.apache.spark.streaming.MQPullInputDStream
 import scala.collection.JavaConverters._
 
@@ -76,7 +76,7 @@ object ConsumerStrategy {
 
   def specificTime(queueToTime: ju.Map[MessageQueue, String]): ConsumerStrategy = {
     val queueToOffset = queueToTime.asScala.map{ case (q, t) =>
-      val offset = UtilAll.parseDate(t, UtilAll.YYYY_MM_DD_HH_MM_SS).getTime
+      val offset = UtilAll.parseDate(t, "YYYY_MMDD_HHMMSS").getTime
       (q, offset)
     }.toMap
     SpecificOffsetStrategy(queueToOffset)

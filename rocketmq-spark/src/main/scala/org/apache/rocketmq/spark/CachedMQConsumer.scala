@@ -17,8 +17,8 @@
 
 package org.apache.rocketmq.spark
 
-import org.apache.rocketmq.client.consumer.{DefaultMQPullConsumer, PullStatus}
-import org.apache.rocketmq.common.message.{MessageExt, MessageQueue}
+import com.alibaba.rocketmq.client.consumer.{DefaultMQPullConsumer, PullStatus}
+import com.alibaba.rocketmq.common.message.{MessageExt, MessageQueue}
 import java.{util => ju}
 
 /**

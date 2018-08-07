@@ -17,9 +17,9 @@
  */
 package org.apache.rocketmq.spark.streaming;
 
-import org.apache.rocketmq.client.exception.MQBrokerException;
-import org.apache.rocketmq.client.exception.MQClientException;
-import org.apache.rocketmq.common.message.MessageExt;
+import com.alibaba.rocketmq.client.exception.MQBrokerException;
+import com.alibaba.rocketmq.client.exception.MQClientException;
+import com.alibaba.rocketmq.common.message.MessageExt;
 import org.apache.rocketmq.spark.ConsumerStrategy;
 import org.apache.rocketmq.spark.HasOffsetRanges;
 import org.apache.rocketmq.spark.LocationStrategy;

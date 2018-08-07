@@ -19,7 +19,7 @@ package org.apache.rocketmq.spark
 
 import java.{util => ju}
 
-import org.apache.rocketmq.common.message.MessageQueue
+import com.alibaba.rocketmq.common.message.MessageQueue
 
 trait HasOffsetRanges {
   def offsetRanges: ju.Map[TopicQueueId, Array[OffsetRange]]

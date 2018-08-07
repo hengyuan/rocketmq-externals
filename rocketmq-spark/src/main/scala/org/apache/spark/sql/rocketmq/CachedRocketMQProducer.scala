@@ -30,7 +30,7 @@ import java.{util => ju}
 
 import com.google.common.cache._
 import com.google.common.util.concurrent.{ExecutionError, UncheckedExecutionException}
-import org.apache.rocketmq.client.producer.DefaultMQProducer
+import com.alibaba.rocketmq.client.producer.DefaultMQProducer
 import org.apache.spark.SparkEnv
 import org.apache.spark.internal.Logging
 
