@@ -35,6 +35,7 @@ class CachedMQConsumer private(
    val optionParams: ju.Map[String, String]) extends Logging {
 
   private val maxBatchSize = optionParams.getOrDefault(RocketMQConfig.PULL_MAX_BATCH_SIZE, "32").toInt
+  private val batchInterval = optionParams.getOrDefault(RocketMQConfig.PULL_BATCH_INTERVAL, "100").toInt
 
   private var buffer = names.map(name => name -> ju.Collections.emptyList[MessageExt].iterator).toMap
 
@@ -73,6 +74,8 @@ class CachedMQConsumer private(
 
   private def poll(name: String, queueOffset: Long) {
     var p = client.pull(new MessageQueue(topic, name, queueId), "*", queueOffset, maxBatchSize)
+    //消费限速
+    Thread.sleep(batchInterval)
     var i = 0
     while (p.getPullStatus != PullStatus.FOUND){
       // it maybe not get the message, so we will retry
