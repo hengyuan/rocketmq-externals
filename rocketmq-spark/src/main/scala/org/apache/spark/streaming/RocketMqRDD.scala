@@ -62,7 +62,7 @@ class RocketMqRDD (
 
   override def getPartitions: Array[Partition] = {
     offsetRanges.asScala.toArray.zipWithIndex.map{ case ((first, second), i) =>
-      new RocketMqRDDPartition(i, first.topic, first.queueId, second)
+      new RocketMqRDDPartition(i, first.topic, first.queueId, first.brokerName(),second)
     }.toArray
   }
 

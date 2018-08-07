@@ -32,6 +32,7 @@ class RocketMqRDDPartition(
                          val index: Int,
                          val topic: String,
                          val queueId: Int,
+                         val brokerName:String,
                          val partitionOffsetRanges: Array[OffsetRange]
                        ) extends Partition {
   /** Number of messages this partition refers to */
@@ -43,7 +44,7 @@ class RocketMqRDDPartition(
 
 
   /** rocketmq TopicQueueId object, for convenience */
-  def topicQueueId(): TopicQueueId = new TopicQueueId(topic, queueId)
+  def topicQueueId(): TopicQueueId = new TopicQueueId(topic,brokerName ,queueId)
 
   def brokerNames(): Set[String] = {
     partitionOffsetRanges.map(_.brokerName).sorted.toSet

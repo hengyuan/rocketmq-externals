@@ -90,7 +90,7 @@ class MQPullInputDStream(
       while (iter.hasNext){
         val messageQueue = iter.next
         val offset = computePullFromWhere(messageQueue)
-        val topicQueueId = new TopicQueueId(messageQueue.getTopic, messageQueue.getQueueId)
+        val topicQueueId = new TopicQueueId(messageQueue.getTopic, messageQueue.getBrokerName,messageQueue.getQueueId)
         if (!currentOffsets.contains(topicQueueId)) {
           currentOffsets += topicQueueId -> Map(messageQueue.getBrokerName -> offset)
         } else {
@@ -327,7 +327,7 @@ class MQPullInputDStream(
     while (iter.hasNext) {
       val messageQueue = iter.next
       logDebug(s"${messageQueue.toString} min: ${c.minOffset(messageQueue)}  max: ${c.maxOffset(messageQueue)}")
-      val topicQueueId = new TopicQueueId(messageQueue.getTopic, messageQueue.getQueueId)
+      val topicQueueId = new TopicQueueId(messageQueue.getTopic, messageQueue.getBrokerName,messageQueue.getQueueId)
       fetchTopicQueues.add(topicQueueId)
       if (!currentOffsets.contains(topicQueueId)){
         currentOffsets += topicQueueId -> Map(messageQueue.getBrokerName -> firstConsumerOffset(messageQueue))
@@ -405,7 +405,7 @@ class MQPullInputDStream(
     if (autoCommit) {
       currentOffsets.foreach { case (tp, uo) =>
         uo.map { case (name, until) =>
-          val offset = currentOffsets(tp)(name) - 1
+          val offset = currentOffsets(tp)(name)
           val mq = new MessageQueue(tp.topic, name, tp.queueId)
           kc.updateConsumeOffset(mq, offset)
         }
@@ -452,8 +452,8 @@ class MQPullInputDStream(
       while (null != osr) {
         //Exclusive ending offset
         val mq = new MessageQueue(osr.topic, osr.brokerName, osr.queueId)
-        kc.updateConsumeOffset(mq, osr.untilOffset - 1)
-        m.put(mq, osr.untilOffset - 1)
+        kc.updateConsumeOffset(mq, osr.untilOffset)
+        m.put(mq, osr.untilOffset)
         osr = commitQueue.poll()
       }
       if (commitCallback.get != null) {

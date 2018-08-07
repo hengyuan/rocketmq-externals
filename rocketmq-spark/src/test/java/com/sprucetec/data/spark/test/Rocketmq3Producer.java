@@ -11,7 +11,7 @@ public class Rocketmq3Producer {
         DefaultMQProducer producer = new DefaultMQProducer("streamingtest");
         producer.setNamesrvAddr("192.168.2.210:9876;192.168.2.211:9876");
         producer.start();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             try {
                 {
                     Message msg = new Message("testtopic",

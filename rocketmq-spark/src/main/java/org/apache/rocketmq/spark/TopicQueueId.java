@@ -22,10 +22,12 @@ public final class TopicQueueId implements Serializable {
     private int hash = 0;
     private final int queueId;
     private final String topic;
+    private final String brokerName;
 
-    public TopicQueueId(String topic, int queueId) {
+    public TopicQueueId(String topic, String brokerName, int queueId) {
         this.queueId = queueId;
         this.topic = topic;
+        this.brokerName = brokerName;
     }
 
     public int queueId() {
@@ -36,54 +38,52 @@ public final class TopicQueueId implements Serializable {
         return topic;
     }
 
+    public String brokerName(){
+        return brokerName;
+    }
+
     @Override
     public int hashCode() {
-        if (hash != 0) {
+        if (hash != 0)
             return hash;
-        }
         final int prime = 31;
         int result = 1;
         result = prime * result + queueId;
         result = prime * result + ((topic == null) ? 0 : topic.hashCode());
+        result = prime * result + ((brokerName == null) ? 0 : brokerName.hashCode());
         this.hash = result;
         return result;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
+        if (this == obj)
             return true;
-        }
-        if (obj == null) {
+        if (obj == null)
             return false;
-        }
-        if (getClass() != obj.getClass()) {
+        if (getClass() != obj.getClass())
             return false;
-        }
         TopicQueueId other = (TopicQueueId) obj;
-        if (queueId != other.queueId) {
+        if (queueId != other.queueId)
             return false;
-        }
         if (topic == null) {
-            if (other.topic != null) {
+            if (other.topic != null)
                 return false;
-            }
-        } else {
-            if (!topic.equals(other.topic)) {
-                return false;
-            }
-        }
+        } else if (!topic.equals(other.topic))
+            return false;
+        if (!brokerName.equals(other.brokerName))
+            return false;
         return true;
     }
 
     @Override
     protected TopicQueueId clone() throws CloneNotSupportedException {
-        return new TopicQueueId(this.topic, this.queueId);
+        return new TopicQueueId(this.topic, this.brokerName, this.queueId);
     }
 
     @Override
     public String toString() {
-        return topic + "-" + queueId;
+        return topic + "-" + brokerName + "-" + queueId;
     }
 
 }
