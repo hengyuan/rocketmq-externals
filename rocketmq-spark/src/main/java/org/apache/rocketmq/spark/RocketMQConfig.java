@@ -109,6 +109,8 @@ public class RocketMQConfig {
      * value is "32"
      */
     public static final String PULL_MAX_BATCH_SIZE = "pull.max.batch.size";
+    public static final String PULL_BATCH_INTERVAL = "pull.batch.interval";
+
 
     /**
      * pull timeout for the consumer, and the default time is "3000".
