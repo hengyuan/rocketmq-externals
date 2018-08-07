@@ -411,7 +411,7 @@ class MQPullInputDStream(
         }
       }
     } else {
-      commitAll()
+      //commitAll()
     }
     Some(rdd)
   }
@@ -430,6 +430,7 @@ class MQPullInputDStream(
     */
   def commitAsync(offsetRanges: ju.Map[TopicQueueId, Array[OffsetRange]]): Unit = {
     commitAsync(offsetRanges, null)
+    commitAll()
   }
 
   /**
