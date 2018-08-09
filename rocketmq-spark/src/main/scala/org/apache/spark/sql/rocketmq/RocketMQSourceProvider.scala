@@ -252,29 +252,29 @@ object RocketMQSourceProvider extends Logging {
   }
 
   def paramsForDriver(specifiedRocketMQParams: Map[String, String]): ju.Map[String, String] = {
-    if (specifiedRocketMQParams.contains(RocketMQConf.CONSUMER_GROUP)) {
+    /*if (specifiedRocketMQParams.contains(RocketMQConf.CONSUMER_GROUP)) {
       throw new IllegalArgumentException(
         s"Option '${RocketMQConf.CONSUMER_GROUP}' can not be specified")
-    }
+    }*/
     ConfigUpdater("source", specifiedRocketMQParams)
         // Set to "earliest" to avoid exceptions. However, RocketMQSource will fetch the initial
         // offsets by itself instead of counting on RocketMQConsumer.
         .set(RocketMQConf.CONSUMER_OFFSET, "earliest")
         // So that the driver does not pull too much data
-        .set(RocketMQConf.PULL_MAX_BATCH_SIZE, "1")
+        .set(RocketMQConf.PULL_MAX_BATCH_SIZE, "32")
         .build()
   }
 
   def paramsForExecutors(
       specifiedRocketMQParams: Map[String, String],
       uniqueGroupId: String): ju.Map[String, String] = {
-    if (specifiedRocketMQParams.contains(RocketMQConf.CONSUMER_GROUP)) {
+    /*if (specifiedRocketMQParams.contains(RocketMQConf.CONSUMER_GROUP)) {
       throw new IllegalArgumentException(
         s"Option '${RocketMQConf.CONSUMER_GROUP}' can not be specified")
-    }
+    }*/
     ConfigUpdater("executor", specifiedRocketMQParams)
         // So that consumers in executors do not mess with any existing group id
-        .set(RocketMQConf.CONSUMER_GROUP, s"$uniqueGroupId-executor")
+        //.set(RocketMQConf.CONSUMER_GROUP, s"$uniqueGroupId-executor")
         .build()
   }
 
