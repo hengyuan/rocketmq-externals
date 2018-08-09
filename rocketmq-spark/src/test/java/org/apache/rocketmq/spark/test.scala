@@ -1,7 +1,6 @@
 package org.apache.rocketmq.spark
 
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.streaming.Trigger
 /**
   * Created with IntelliJ IDEA.
   * User: hanjiafu
@@ -23,7 +22,6 @@ object test {
       .option("topic", "testtopic")
       .option("group","streaming1")
       .load()
-    df.printSchema()
     df.selectExpr("CAST(body AS STRING)").groupBy("body").count()
     val query = df.writeStream
       .outputMode("update")
